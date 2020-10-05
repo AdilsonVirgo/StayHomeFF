@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<input type="date" name="birtdate" placeholder="select Birth date" >
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -17,9 +18,9 @@
                     {{ __('You are logged in!') }}
 
                     <livewire:counter />
-                    
+
                     Date: <div id="datepicker"></div>
-                    
+
                 </div>
             </div>
         </div>
@@ -28,12 +29,7 @@
 @endsection
 
 @section('localscript')
-
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
- <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  
 <script>
-    $( "#datepicker" ).datepicker();
+    console.log('localscript $("#datepicker").datepicker();');
 </script>
 @endsection

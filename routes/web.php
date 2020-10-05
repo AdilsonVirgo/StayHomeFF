@@ -22,7 +22,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::resource('/estadisticas', 'StadisticController');
+#Route::resource('/estadisticas', 'StadisticController');
 
 #servicios
 Route::resource('cocodrileras', 'Servicios\CocodrileraController');
@@ -63,4 +63,5 @@ Route::get('/onedaydispo/{nameForm}/{cocodrileraForm}/{mercadoForm}/{totalForm}/
 //reportes
 Route::get('reportes', 'ReporteController@index')->name('reportes.index');
 
-Route::get('fecha/{fecha_entrada?}/{fecha_salida?}', 'FechaController@index')->name('fecha.index');
+Route::get('fecha/{fecha_entrada?}/{fecha_salida?}/{dias?}/{formatoYmd?}', 'FechaController@index')->name('fecha.index');
+Route::get('fechaFull/{fecha_entrada?}/{fecha_salida?}', 'FechaController@Full2DateCalculations')->name('fecha.Full2DateCalculations');

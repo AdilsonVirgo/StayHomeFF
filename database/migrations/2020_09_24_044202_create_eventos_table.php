@@ -15,6 +15,13 @@ class CreateEventosTable extends Migration
     {
         Schema::create('eventos', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->integer('ueb_id')->default(1);
+            $table->integer('capacidad')->default(1);
+            $table->integer('paxs')->default(0); //actualmente
+            $table->integer('disponibilidad')->default(10);
+            $table->boolean('activa')->default(true);
+            $table->string('observaciones')->nullable();
             $table->timestamps();
         });
     }

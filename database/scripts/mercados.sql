@@ -1,0 +1,3 @@
+INSERT INTO `florafauna`.`mercados` (`name`, `created_at`, `updated_at`) VALUES ('Otros', '2019-10-13 15:31:30', '2019-11-13 15:31:31');
+INSERT INTO `florafauna`.`mercados` (`name`, `created_at`, `updated_at`) VALUES ('Interno', '2019-10-13 15:31:30', '2019-11-13 15:31:31');
+INSERT INTO `florafauna`.`mercados` (`name`, `created_at`, `updated_at`) VALUES ('Turistas Libres', '2019-10-13 15:31:30', '2019-11-13 15:31:31');

@@ -11,6 +11,11 @@ class ProvinciaSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $provincias = file_get_contents(database_path() . "/scripts/provincias.sql");
+        $statements = array_filter(array_map('trim', preg_split('/\r\n|\r|\n/', $provincias)));
+
+        foreach ($statements as $stmt) {
+            DB::statement($stmt);
+        }
     }
 }

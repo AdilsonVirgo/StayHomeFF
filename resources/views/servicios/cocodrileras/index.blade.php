@@ -1,4 +1,4 @@
-@extends('layouts.appOFF')
+@extends('layouts.app')
 
 @section('localcss')
 <link href="{{ asset('css/jquery.dataTables.min.css') }}" rel="stylesheet">
@@ -49,7 +49,7 @@
     .hvr-sweep-to-right:active:before,
     .hvr-sweep-to-right:focus:before,
     .hvr-sweep-to-right:hover:before{-webkit-transform:scaleX(1);transform:scaleX(1)}
-    
+
     .mystyle{
         width: 100%;
         padding: 25px;
@@ -57,7 +57,7 @@
         color: black;
         font-size: 25px;
     }
-    
+
 </style>
 @endsection
 
@@ -180,19 +180,18 @@
                         var jqxhr = $.ajax(children)
                                 .done(function(data) {
 
-                                document.getElementById("side_nombre").innerHTML = data[Elem-1].name;
+                                document.getElementById("side_nombre").innerHTML = data[Elem - 1].name;
                                 var element = document.getElementById("myDIV");
                                 element.classList.toggle("mystyle");
                                 console.log(data);
-                             
                                 })
                                 .fail(function() {
                                 alert("error");
                                 })
                                 .always(function() {
-                              
+
                                 });
                         }
-                        
+
 </script>
 @endsection

@@ -1,4 +1,4 @@
-@extends('layouts.appOFF')
+@extends('layouts.app')
 
 @section('localcss')
 <link href="{{ asset('css/jquery.dataTables.min.css') }}" rel="stylesheet">
@@ -153,7 +153,7 @@
                 </div>
                 <div class="col-75">
                     <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required unique:cocodrileras maxlength="100" autofocus 
-                           onclick="document.getElementById('explicacion').innerHTML='Aqui se escribe el nombre de la Cocodrilera';">
+                           onclick="document.getElementById('explicacion').innerHTML = 'Aqui se escribe el nombre de la Cocodrilera';">
                     @if ($errors->has('name'))
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('name') }}</strong>
@@ -166,7 +166,7 @@
                 <div class="col-15">    <label for="name">Capacidad</label></div>
                 <div class="col-75"> <input id="capacidad" type="number" class="form-control{{ $errors->has('capacidad') ? ' is-invalid' : '' }}" 
                                             name="capacidad" value="{{ old('capacidad') }}" min="1" max="100" required autofocus step="1"
-                                            onclick="document.getElementById('explicacion').innerHTML='Aqui se escribe la Capacidad de la Cocodrilera';"
+                                            onclick="document.getElementById('explicacion').innerHTML = 'Aqui se escribe la Capacidad de la Cocodrilera';"
                                             onkeypress="return ((event.charCode >= 48 && event.charCode <= 57) || event.charCode === 46)">
                     @if ($errors->has('capacidad'))
                     <span class="invalid-feedback" role="alert">
@@ -182,11 +182,11 @@
                                          href="{{ URL::to('uebs/create') }}"><i class="fa fa-plus"></i>
                     </a>
                     <select id="ueb_id" class="form-control{{ $errors->has('ueb_id') ? ' is-invalid' : '' }}" name="ueb_id" value="{{ old('ueb_id') }}" required autofocus
-                            onclick="document.getElementById('explicacion').innerHTML='Aqui se selecciona la UEB de la Cocodrilera';">
+                            onclick="document.getElementById('explicacion').innerHTML = 'Aqui se selecciona la UEB de la Cocodrilera';">
                         <option value="">Escoje...</option>
-                         @foreach($uebs as $x => $ueb) 
-                                        <option value="{{$ueb->id}}">{{$ueb->name}}</option>
-                                        @endforeach
+                        @foreach($uebs as $x => $ueb) 
+                        <option value="{{$ueb->id}}">{{$ueb->name}}</option>
+                        @endforeach
                     </select>  
                     @if ($errors->has('ueb_id'))
                     <span class="invalid-feedback" role="alert">
@@ -199,7 +199,7 @@
             <div class="form-group row">
                 <div class="col-15"><label for="observaciones"  >Observaciones</label></div>
                 <div class="col-75"><input id="observaciones" type="text" class="form-control{{ $errors->has('observaciones') ? ' is-invalid' : '' }}" name="observaciones" value="{{ old('observaciones') }}"
-                                           onclick="document.getElementById('explicacion').innerHTML='Aqui se escribe la Observaciones';">
+                                           onclick="document.getElementById('explicacion').innerHTML = 'Aqui se escribe la Observaciones';">
                     @if ($errors->has('observaciones'))
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('observaciones') }}</strong>
@@ -212,7 +212,7 @@
         </form>
         <div class="col-15"></div><div class="col-75">
             <a id="fb1" class="btn btn-outline-success" href="/home"
-               onclick="event.preventDefault();document.getElementById('cocodrilera-form').submit();
+               onclick="event.preventDefault(); document.getElementById('cocodrilera-form').submit();
                "><i class="fa fa-thumbs-up"></i>
                 Crear un Nuevo Cocodrilera</a>
         </div>
@@ -232,36 +232,36 @@
 <script src="{{ asset('js/jquery.dataTables.min.js') }}" ></script>
 <script>
 
-                                   window.onscroll = function () {
-                                       myFunction()
-                                   };
+                   window.onscroll = function () {
+                       myFunction()
+                   };
 
-                                   function myFunction() {
-                                       var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-                                       var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                                       var scrolled = (winScroll / height) * 100;
-                                       document.getElementById("myBar").style.width = scrolled + "%";
-                                   }
+                   function myFunction() {
+                       var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                       var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                       var scrolled = (winScroll / height) * 100;
+                       document.getElementById("myBar").style.width = scrolled + "%";
+                   }
 
-                                   var Dtable = $('#cocodrileraDT').dataTable({
+                 /*  var Dtable = $('#cocodrileraDT').dataTable({
 
-                                   });
+                   });*/
 
-                                   function DTVerDatos(Elem) {
-                                       var children = "/cocodrilera/".concat(Elem);
-                                       console.log(children);
-                                       var jqxhr = $.ajax(children)
-                                               .done(function (data) {
-                                                   document.getElementById("side_nombre").innerHTML = data[0].name;
-                                                   //  alert("success");
-                                                   console.log(data);
-                                               })
-                                               .fail(function () {
-                                                   alert("error");
-                                               })
-                                               .always(function () {
-                                                   alert("complete");
-                                               });
-                                   }
+                   function DTVerDatos(Elem) {
+                       var children = "/cocodrilera/".concat(Elem);
+                       console.log(children);
+                       var jqxhr = $.ajax(children)
+                               .done(function (data) {
+                                   document.getElementById("side_nombre").innerHTML = data[0].name;
+                                   //  alert("success");
+                                   console.log(data);
+                               })
+                               .fail(function () {
+                                   alert("error");
+                               })
+                               .always(function () {
+                                   alert("complete");
+                               });
+                   }
 </script>
 @endsection

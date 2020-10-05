@@ -15,6 +15,9 @@ class CreateNacsTable extends Migration
     {
         Schema::create('nacs', function (Blueprint $table) {
             $table->id();
+             $table->string('name');  
+            $table->boolean('activa')->default(true);
+            $table->string('observaciones')->nullable();			
             $table->timestamps();
         });
     }

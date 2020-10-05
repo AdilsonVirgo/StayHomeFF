@@ -15,6 +15,13 @@ class CreateDispolistsTable extends Migration
     {
         Schema::create('dispolists', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->integer('servicio_id');
+            $table->integer('diarioreal');
+            $table->integer('disponibilidad');
+            $table->date('fecha');
+            //caso alojamiento
+            //cant de hab xtipo //sencilla,doble,triple,cuadruple,albegue
             $table->timestamps();
         });
     }

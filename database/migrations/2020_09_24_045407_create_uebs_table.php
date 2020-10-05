@@ -15,6 +15,10 @@ class CreateUebsTable extends Migration
     {
         Schema::create('uebs', function (Blueprint $table) {
             $table->id();
+			$table->string('name');  
+            $table->integer('provincia_id')->default(1);  
+            $table->boolean('activa')->default(true);
+            $table->string('observaciones')->nullable();
             $table->timestamps();
         });
     }

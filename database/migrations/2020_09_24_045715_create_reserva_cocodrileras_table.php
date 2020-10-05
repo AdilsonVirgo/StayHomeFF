@@ -15,6 +15,18 @@ class CreateReservaCocodrilerasTable extends Migration
     {
         Schema::create('reserva_cocodrileras', function (Blueprint $table) {
             $table->id();
+            $table->string('name'); //alias localizador
+            $table->integer('cocodrilera_id');
+            $table->integer('mercado_id');
+            $table->integer('total_pax')->default(1);
+            $table->integer('plan')->default(0);
+            $table->date('fecha_entrada');
+            $table->date('fecha_salida');
+            $table->integer('adultos')->default(1);
+            $table->integer('menores')->default(0);
+            $table->integer('agencia_id')->default(1);
+            $table->boolean('activa')->default(true);
+            $table->string('observaciones')->nullable();
             $table->timestamps();
         });
     }

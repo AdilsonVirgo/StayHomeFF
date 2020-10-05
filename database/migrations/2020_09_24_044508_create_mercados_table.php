@@ -14,7 +14,10 @@ class CreateMercadosTable extends Migration
     public function up()
     {
         Schema::create('mercados', function (Blueprint $table) {
-            $table->id();
+            $table->id();			
+            $table->string('name');  
+            $table->boolean('activa')->default(true);
+            $table->string('observaciones')->nullable();
             $table->timestamps();
         });
     }

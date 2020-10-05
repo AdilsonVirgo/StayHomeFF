@@ -15,6 +15,16 @@ class CreateReservasTable extends Migration
     {
         Schema::create('reservas', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger('numero')->default(0);
+            $table->string('name');
+            $table->integer('ueb_id')->default(1);
+            $table->morphs('reservable');
+            $table->integer('total_pax')->default(1);
+            $table->date('fecha_entrada');
+            $table->date('fecha_salida');
+            $table->integer('nac_id')->default(1);
+            $table->boolean('activa')->default(true);
+            $table->string('observaciones')->nullable();
             $table->timestamps();
         });
     }

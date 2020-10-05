@@ -8,13 +8,15 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name', 'Laravel') }}</title>
+        
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
         <script src="{{ asset('js/all.min.js') }}" defer></script>
+        
         <!-- Styles -->
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-        <!-- fontawesome 5.14 -->
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">       
         <link href="{{ asset('css/all.min.css') }}" rel="stylesheet">
+
         @include('partials.globalcss')
         @yield('localcss')
         @livewireStyles

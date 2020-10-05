@@ -11,6 +11,11 @@ class EcuestreSeeder extends Seeder
      */
     public function run()
     {
-        //
+       $ecuestres = file_get_contents(database_path() . "/scripts/ecuestres.sql");
+        $statements = array_filter(array_map('trim', preg_split('/\r\n|\r|\n/', $ecuestres)));
+
+        foreach ($statements as $stmt) {
+            DB::statement($stmt);
+        }
     }
 }
