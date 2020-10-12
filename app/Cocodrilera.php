@@ -18,9 +18,5 @@ class Cocodrilera extends Model {
     public function servicio() {
         return $this->morphOne('App\Servicio', 'watchable');
     }
-    
-    public function name() {
-        return $this->name;                
-    }
 
 }

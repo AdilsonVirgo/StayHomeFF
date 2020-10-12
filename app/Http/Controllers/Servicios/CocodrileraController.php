@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers\Servicios;
 
-
 use \App\Http\Controllers\Controller;
-
 use App\Cocodrilera;
 use Illuminate\Http\Request;
 use App\Sendero;
@@ -19,8 +17,8 @@ use App\Provincia;
 use App\ReservaGastronomia;
 use App\Notifications\NotificacionReserva;
 
-class CocodrileraController extends Controller
-{
+class CocodrileraController extends Controller {
+
     /**
      * Display a listing of the resource.
      *
@@ -73,9 +71,9 @@ class CocodrileraController extends Controller
             'observaciones' => [],
         ]);
         $retorno = tap(new Cocodrilera($attributes))->save();
-        /*Actualizar Disponibilidad*/
+        /* Actualizar Disponibilidad */
         \DB::table('cocodrileras')->where('id', $retorno->id)->update(['disponibilidad' => $request->capacidad]);
-        
+
         $fullname = $retorno->name . '-Cocodrilera';
         $service = $this->CrearServicio($fullname, 'App\Cocodrilera', $retorno->id, $request->capacidad, true, $request->observaciones);
         if ($retorno) {
@@ -93,7 +91,7 @@ class CocodrileraController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Cocodrilera $cocodrilera) {
-        return view('cocodrileras.show', compact($cocodrilera, 'cocodrilera'));
+        return view('servicios.cocodrileras.show', compact($cocodrilera, 'cocodrilera'));
     }
 
     /**
@@ -126,4 +124,5 @@ class CocodrileraController extends Controller
     public function destroy(Cocodrilera $cocodrilera) {
         //
     }
+
 }

@@ -29,17 +29,14 @@ class RutasBasicoTest extends TestCase {
 
     /** @test */
     public function testRutaHomeConAutenticacion() {
-        $user = factory(User::class)->create();
-        dd($user);
-        $response = $this->get('home');
-
+        $user = \App\User::where('name', 'SuperAdmin')->first();   
+        $response = $this->actingAs($user)->get('home');
         $response->assertStatus(200);
     }
 
     /** @test */
     public function testRutaLogin() {
         $response = $this->get('login');
-
         $response->assertStatus(200);
     }
 

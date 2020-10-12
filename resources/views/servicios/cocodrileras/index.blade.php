@@ -57,16 +57,15 @@
         color: black;
         font-size: 25px;
     }
-
 </style>
 @endsection
 
 @section('content-left')
 <div class="side" style="padding: 10px 10px;background-color: orange">
     <ul class="breadcrumb">
-        <li><a href="home">Inicio</a></li>
-        <li><a href="cocodrileras">Cocodrileras</a></li>
-        <li><a href="cocodrileras/create">Nueva</a></li>
+        <li><a href="<?php echo(route('home')); ?>">Inicio</a></li>
+        <li><a href="<?php echo(route('cocodrileras.index')); ?>">Cocodrileras</a></li>
+        <li><a href="<?php echo(route('cocodrileras.create')); ?>">Nueva</a></li>
     </ul>
     <div class="column">
         <div id="myDIV" class="card1">
@@ -171,9 +170,8 @@
                         document.getElementById("myBar").style.width = scrolled + "%";
                         }
 
-                        var Dtable = $('#cocodrileraDT').dataTable({
-
-                        });
+                        var Dtable = $('#cocodrileraDT').dataTable({});
+                        
                         function DTVerDatos(Elem) {
                         var children = "/api/cocodrilera/".concat(Elem);
                         console.log(children);
